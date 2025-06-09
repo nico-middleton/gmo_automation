@@ -1,0 +1,14 @@
+on run argv
+    set theFile to POSIX file (item 1 of argv) as alias
+    set theSubject to "Automation test"
+    set theBody to "This is a test of the automation."
+    set theRecipient to "nico.middleton@cleandns.email"
+
+    tell application "Microsoft Outlook"
+        set newMessage to make new outgoing message with properties {subject:theSubject, content:theBody}
+        make new recipient at newMessage with properties {email address:{name:"Recipient", address:theRecipient}}
+        make new attachment at newMessage with properties {file:theFile}
+        send newMessage
+    end tell
+end run
+
