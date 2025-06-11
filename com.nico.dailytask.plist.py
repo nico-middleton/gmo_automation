@@ -4,26 +4,26 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.nico.dailyemail</string>
+    <string>com.nico.dailytask</string>
 
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/nico/Desktop/gmo_automation/daily_email.sh</string>
+        <string>/Users/nico/Desktop/gmo_automation/daily_task.sh</string>
     </array>
 
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>14</integer>
+        <integer>15</integer>
         <key>Minute</key>
-        <integer>10</integer>
+        <integer>15</integer>
     </dict>
 
     <key>StandardOutPath</key>
-    <string>/Users/nico/Library/Logs/daily_email.out</string>
+    <string>/Users/nico/Library/Logs/daily_task.out</string>
 
     <key>StandardErrorPath</key>
-    <string>/Users/nico/Library/Logs/daily_email.err</string>
+    <string>/Users/nico/Library/Logs/daily_task.err</string>
 
     <key>RunAtLoad</key>
     <true/>

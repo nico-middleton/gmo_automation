@@ -1,9 +1,16 @@
 const fs = require('fs');
-const path = require('path'); 
-const { MongoClient } = require('mongodb'); 
+const path = require('path');
+const { MongoClient } = require('mongodb');
 
-// mongoDB connection URI and database details
-// make sure to update w/ your MongoDB compass connection string, /v5 should be at the end
+// Setup logging
+const scriptDir = __dirname;
+const logFile = path.join(scriptDir, 'debug.log');
+function log(message) {
+    const timestamp = new Date().toISOString();
+    fs.appendFileSync(logFile, `[${timestamp}] ${message}\n`);
+}
+
+// MongoDB connection
 const uri = "mongodb+srv://nico:8SnSHzOJNZGA2y97@cleandns-prod.ltzfv.mongodb.net/test/v5";
 const client = new MongoClient(uri);
 const dbName = "v5";
@@ -11,19 +18,19 @@ const collectionName = "cases";
 
 async function generateCSV() {
     try {
+        log("Script started");
+
         await client.connect();
-        console.log("Connected to MongoDB");
+        log("Connected to MongoDB");
 
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
 
-        // calculate date range (today and tomorrow in UTC)
         const today = new Date();
         const startDate = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
         const endDate = new Date(startDate);
         endDate.setUTCDate(startDate.getUTCDate() + 1);
 
-        // define the aggregation pipeline
         const pipeline = [
             {
                 $match: {
@@ -57,14 +64,12 @@ async function generateCSV() {
             }
         ];
 
-        // execute the aggregation pipeline
         const results = await collection.aggregate(pipeline).toArray();
+        log(`Aggregation returned ${results.length} results`);
 
-        // prepare CSV headers
         const csvHeaders = ["_id", "actors", "domain_info.whois.registrar.name", "domain_info.whois.ts.created"];
         const csvRows = [csvHeaders.join(",")];
 
-        // convert query results to CSV rows
         results.forEach(doc => {
             const id = doc._id || "";
             const actor = doc.actors || "";
@@ -75,21 +80,18 @@ async function generateCSV() {
             csvRows.push(row);
         });
 
-        const month = today.getUTCMonth() + 1; // Months are zero-based
+        const month = today.getUTCMonth() + 1;
         const day = today.getUTCDate();
         const fileName = `gmo_review_${month}-${day}.csv`;
-
-        // use the directory of the script as the output path
-        const scriptDir = __dirname;
         const outputPath = path.join(scriptDir, fileName);
 
         fs.writeFileSync(outputPath, csvRows.join("\n"));
-        console.log(`CSV saved to ${outputPath}`);
+        log(`CSV saved to ${outputPath}`);
     } catch (error) {
-        console.error("Error generating CSV:", error);
+        log("Error generating CSV: " + error.stack);
     } finally {
-        // close the MongoDB connection
         await client.close();
+        log("MongoDB connection closed");
     }
 }
 

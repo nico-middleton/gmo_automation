@@ -1,33 +1,20 @@
 # GMO Automation
 ## How the files work:
-client_review_automation.js: Pulls data from MongoDB, formats and saves as a csv file in the format *gmo_review_M-D.csv*
 
-daily_email.sh: Grabs file from desktop and runs the send_email script with it as an argument
+daily_task.sh: runs the node (client_review_automation.js) script and applescript (send_email.scpt)
 
-send_email: Creates an Outlook email, attaches file, and sends email
+client_review_automation.js: runs the mongodb query and saves it as a csv file
 
-com.nico.dailyemail.plist.py: schedules daily_email script to run every day and once when loaded. *note: this is saved as a python file for commenting purposes, this file should be saved as a plist in /Library/LaunchAgents
+send_email.scpt: sends the csv file via outlook
 
-## There are two parts to the automation. 
+com.nico.dailytask.plist (saved in ~/Library/LaunchAgents/): schedules task, runs it every day at set time
 
-**1: Saving the file**
+## Loading task via Launchr
 
-Using *cron*:
+loads task: launchctl load ~/Library/LaunchAgents/com.nico.dailytask.plist
 
-open crontab editor: crontab -e 
+unloads task: launchctl unload ~/Library/LaunchAgents/com.nico.dailytask.plist
 
-run the script every day at 10:30am: 30 10 * * * /opt/homebrew/bin/node /Users/nico/Desktop/gmo_automation/client_review_automation.js >> /Users/nico/Desktop/gmo_automation/cron.log 2>&1
+check if task is active: launchctl list | grep dailytask
 
-verify crontab is active: crontab -l
-
-*Must have homebrew, Mongosh, and MongoDB via npm installed*
-
-**2: Sending the email**
-
-Using *Launchr (Mac)*
-
-load the task: launchctl load ~/Library/LaunchAgents/com.nico.dailyemail.plist
-
-confirm it's active: launchctl list | grep com.nico.dailyemail OR launchctl list com.nico.dailyemail
-
-stop the task: launchctl unload ~/Library/LaunchAgents/com.nico.dailyemail.plist
+**Note: after making a change to plist file, unload and reload task for the change to make effect.**
