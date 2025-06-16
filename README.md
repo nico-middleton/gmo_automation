@@ -7,7 +7,7 @@ client_review_automation.js: runs the mongodb query and saves it as a csv file
 
 send_email.scpt: sends the csv file via outlook
 
-com.nico.dailytask.plist (saved in ~/Library/LaunchAgents/): schedules task, runs it every day at set time
+com.nico.dailytask.plist (saved in ~/Library/LaunchAgents/): schedules task, runs it every day at set time except for weekends and Tuesdays
 
 ## Loading task via Launchr
 

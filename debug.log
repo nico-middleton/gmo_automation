@@ -76,3 +76,39 @@ bah
 [2025-06-11T20:12:26.687Z] Aggregation returned 133 results
 [2025-06-11T20:12:26.692Z] CSV saved to /Users/nico/Desktop/gmo_automation/gmo_review_6-11.csv
 [2025-06-11T20:12:26.700Z] MongoDB connection closed
+[2025-06-12T19:15:04.325Z] Script started
+[2025-06-12T19:15:04.949Z] Connected to MongoDB
+[2025-06-12T19:15:05.008Z] Aggregation returned 8 results
+[2025-06-12T19:15:05.009Z] CSV saved to /Users/nico/Desktop/gmo_automation/gmo_review_6-12.csv
+[2025-06-12T19:15:05.013Z] MongoDB connection closed
+[2025-06-13T19:15:04.193Z] Script started
+[2025-06-13T19:15:04.841Z] Connected to MongoDB
+[2025-06-13T19:15:05.138Z] Aggregation returned 140 results
+[2025-06-13T19:15:05.141Z] CSV saved to /Users/nico/Desktop/gmo_automation/gmo_review_6-13.csv
+[2025-06-13T19:15:05.146Z] MongoDB connection closed
+[2025-06-14T19:21:07.532Z] Script started
+[2025-06-14T19:36:40.490Z] Error generating CSV: MongoServerSelectionError: connect ETIMEDOUT 104.197.22.201:27017
+    at Topology.selectServer (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:326:38)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:569:9)
+    at process.processTimers (node:internal/timers:543:7)
+    at async Topology._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:200:28)
+    at async Topology.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:152:13)
+    at async topologyConnect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:246:17)
+    at async MongoClient._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:259:13)
+    at async MongoClient.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:184:13)
+    at async generateCSV (/Users/nico/Desktop/gmo_automation/client_review_automation.js:23:9)
+[2025-06-14T19:36:40.492Z] MongoDB connection closed
+[2025-06-15T19:29:28.742Z] Script started
+[2025-06-15T19:40:28.583Z] Error generating CSV: MongoServerSelectionError: connect ETIMEDOUT 104.197.22.201:27017
+    at Topology.selectServer (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:326:38)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:569:9)
+    at process.processTimers (node:internal/timers:543:7)
+    at async Topology._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:200:28)
+    at async Topology.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:152:13)
+    at async topologyConnect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:246:17)
+    at async MongoClient._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:259:13)
+    at async MongoClient.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:184:13)
+    at async generateCSV (/Users/nico/Desktop/gmo_automation/client_review_automation.js:23:9)
+[2025-06-15T19:40:28.584Z] MongoDB connection closed
