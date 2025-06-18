@@ -19,7 +19,7 @@
             <key>Minute</key>
             <integer>15</integer>
             <key>Weekday</key>
-            <integer>2</integer> <!-- Monday -->
+            <integer>1</integer> <!-- Monday -->
     </dict>
     <dict>
         <key>Hour</key>
@@ -27,7 +27,7 @@
         <key>Minute</key>
         <integer>15</integer>
         <key>Weekday</key>
-        <integer>4</integer> <!-- Wednesday -->
+        <integer>3</integer> <!-- Wednesday -->
     </dict>
     <dict>
         <key>Hour</key>
@@ -35,7 +35,7 @@
         <key>Minute</key>
         <integer>15</integer>
         <key>Weekday</key>
-        <integer>5</integer> <!-- Thursday -->
+        <integer>4</integer> <!-- Thursday -->
     </dict>
     <dict>
         <key>Hour</key>
@@ -43,7 +43,7 @@
         <key>Minute</key>
         <integer>15</integer>
         <key>Weekday</key>
-        <integer>6</integer> <!-- Friday -->
+        <integer>5</integer> <!-- Friday -->
     </dict>
 </array>
 
