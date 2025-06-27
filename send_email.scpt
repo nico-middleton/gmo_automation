@@ -3,7 +3,7 @@ on run argv
     set theSubject to "GMO Client Review [Automation Test]"
     set theBody to "Attached is the GMO Client Review csv file."
 
-    set theRecipients to {"nico.middleton@cleandns.email", "gia.isabella@cleandns.email", "richard.hansen@cleandns.email"}
+    set theRecipients to {"nico.middleton@cleandns.email", "richard.hansen@cleandns.email"}
 
     tell application "Microsoft Outlook"
         set newMessage to make new outgoing message with properties {subject:theSubject, content:theBody}
