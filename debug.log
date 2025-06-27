@@ -156,3 +156,13 @@ bah
 [2025-06-26T19:26:51.081Z] Error generating CSV: Error: querySrv ECONNREFUSED _mongodb._tcp.cleandns-prod.ltzfv.mongodb.net
     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)
 [2025-06-26T19:26:51.083Z] MongoDB connection closed
+[2025-06-27T15:10:35.166Z] Script started
+[2025-06-27T15:11:05.359Z] Error generating CSV: MongoServerSelectionError: Server selection timed out after 30000 ms
+    at Topology.selectServer (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:326:38)
+    at async Topology._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:200:28)
+    at async Topology.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/sdam/topology.js:152:13)
+    at async topologyConnect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:246:17)
+    at async MongoClient._connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:259:13)
+    at async MongoClient.connect (/Users/nico/Desktop/gmo_automation/node_modules/mongodb/lib/mongo_client.js:184:13)
+    at async generateCSV (/Users/nico/Desktop/gmo_automation/client_review_automation.js:23:9)
+[2025-06-27T15:11:05.363Z] MongoDB connection closed

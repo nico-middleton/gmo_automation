@@ -1,6 +1,6 @@
 on run argv
     set theFile to (POSIX file (item 1 of argv)) as «class furl»
-    set theSubject to "GMO Client Review [Automation Test]"
+    set theSubject to "GMO Client Review"
     set theBody to "Attached is the GMO Client Review csv file."
 
     set theRecipients to {"nico.middleton@cleandns.email", "richard.hansen@cleandns.email"}
